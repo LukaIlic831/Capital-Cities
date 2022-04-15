@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d3cc04abd6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Capital Cities</title>
+</head>
+
+<body onload="getAllFlags()">
+    <div class="row">
+        <nav>
+            <h1 class="nav__title">
+                Capital <span class="blue">Cities</span>
+                <i class="fas fa-earth-africa nav__icon"></i>
+            </h1>
+        </nav>
+    </div>
+    <header>
+        <div class="row">
+            <div class="header__wrapper">
+                <div class="header__buttons">
+                    <a class="btn btn1 btn-primary" onclick="openSearch()">Search</a>
+                    <a class="btn btn2" onclick="openCountries()">Countries</a>
+                    <a class="btn btn3" onclick="openGuess()">Guess the Flag</a>
+                </div>
+                <div class="search__section">
+                    <div class="header__search">
+                        <input type="text" class="search" onchange="searchValue(event)" placeholder="Type in Country name or Capital City">
+                    </div>
+                <div class="header__text">
+                    <div class="header-loading">
+                        <i class="fa-solid fa-spinner loading"></i>
+                    </div>
+                    <div class="header__paragraf">
+                        <p class="header__para"></p>
+                        <figure class="header__wrapper--img">
+                            <img class="header__img" src="" alt="">
+                        </figure>
+                    </div>
+                    <p class="no-result">No Results</p>
+                    <i class="fa-solid fa-flag flag"></i>
+                </div>
+                <figure class="header__world--img">
+                    <img src="./assets/world.svg" class="world__img" alt="">
+                </figure>
+                </div>
+                <div class="Countries__wrapper">
+                    <div class="continent">
+                        <div class="continent__name" id="europe">
+                            <p class="continent--name">Europe</p>
+                            <div class="continent__icon">
+                                <i class="fa-solid fa-earth-europe continent-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="continent" >
+                        <div class="continent__name" id="asia">
+                            <p class="continent--name">Asia</p>
+                            <div class="continent__icon">
+                                <i class="fa-solid fa-earth-asia continent-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="continent">
+                        <div class="continent__name">
+                            <p class="continent--name" id="oceania">Oceania</p>
+                            <div class="continent__icon">
+                                <i class="fa-solid fa-earth-oceania continent-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="continent" >
+                        <div class="continent__name" id="africa">
+                            <p class="continent--name">Africa</p>
+                            <div class="continent__icon">
+                                <i class="fa-solid fa-earth-africa continent-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="continent">
+                        <div class="continent__name" id="americas">
+                            <p class="continent--name">Americas</p>
+                            <div class="continent__icon">
+                                <i class="fa-solid fa-earth-americas continent-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loading__bg">
+                    <div class="loading__wrapper">
+                        <i class="fa-solid fa-spinner loading"></i>
+                    </div>
+                </div>
+                <div class="go-back" onclick="backToCountries()">
+                    <i class="fa-solid fa-left-long back"></i>
+                </div>
+                <div class="continent__countries">
+                </div>
+                <div class="guess__wrapper">
+                    <figure class="guess__flag--img">
+                        <img class="guess__flag" src="" alt="">
+                    </figure>
+                    <div class="guess__para">
+                        Which is the capital of <span class="capital__name"></span>
+                    </div>
+                    <div class="header__search">
+                        <input type="text" class="guess__search" onchange="checkCapital(event)" placeholder="Type in Capital">
+                    </div>
+                    <a class="refresh__btn" onclick="refreshFlag()"><i class="fa-solid fa-arrows-rotate"></i></a>
+                    <div class="guess__hint">
+                        <p class="hint__para"></p>
+                    </div>
+                    <div class="guess__score--bg">
+                        <div class="guess__score--wrapper">
+                            <div class="guess__score--para">
+                                <h3>That it's True!</h3>
+                            </div>
+                            <div class="guess__score">
+                                Your score is 10
+                            </div>
+                            <div class="guess__score--btn">
+                                <a class="btn-next" onclick="nextFlag()">Next</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+<script src="index.js"></script>
+
+</html>

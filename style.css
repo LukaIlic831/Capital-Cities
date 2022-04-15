@@ -1,0 +1,539 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap');
+
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.row{
+    width: 100%;
+    max-width: 1200px;
+    margin:0 auto;
+    padding: 0 12px;
+}
+
+.btn{
+    padding: 8px 12px;
+    background: none;
+    border: 2px solid #4cc9f0;
+    font-size: 15px;
+    color: #131313;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    border-radius: 12px;
+    background-color: #ecd448;
+    font-weight: bolder;
+    box-shadow: 0 2px 0 2px #000;
+    margin-left: 6px;
+}
+
+.btn:hover {
+    background-color: #4cc9f0;
+    color: #fff;
+    box-shadow: 0 2px 0 2px #0d3b66;
+}
+
+.btn-primary{
+    background-color: #4cc9f0;
+    color: #fff;
+    box-shadow: 0 2px 0 2px #0d3b66;
+}
+
+.blue{
+    color:#4cc9f0;
+}
+
+.flag{
+    display: block;
+    margin-top: 10px;
+    font-size: 26px;
+}
+
+img{
+    width: 100%;
+}
+
+.no-result{
+    display: none;
+}
+
+.back{
+    font-size: 50px;
+    display: flex;
+    margin-left: 100px;
+    cursor: pointer;
+}
+
+/* Slider */
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+}
+   
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+   
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 30px;
+}
+   
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 20px;
+    left: 0.3em;
+    bottom: 0.3em;
+    background-color: white;
+    transition: .4s;
+}
+   
+input:checked + .slider {
+    background-color: #2196F3;
+}
+   
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+   
+input:checked + .slider:before {
+    transform: translateX(1.5em);
+}
+
+/* Navigation */
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.nav__title{
+    font-size: 40px;
+    color:#487F63;
+}
+
+.nav__icon{
+    background-color: #4cc9f0;
+    color:#23c06f;
+    border-radius: 22px;
+    animation:earth 3s linear infinite;
+}
+
+@keyframes earth {
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(360deg);
+    }
+}
+
+/* Header */
+
+.header__wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header__buttons{
+    margin:20px 0;
+}
+
+
+.header__search{
+    margin:10px 0;
+}
+
+.header__world--img{
+    width: 80%;
+    margin-top: 50px;
+}
+
+.search{
+    width: 350px;
+    height: 24pt;
+    transition-duration: 0.4s;
+    color: black;
+    background: white;
+    border: 2px solid;
+    border-color: #4cc9f0;
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+.search:focus{
+    background-color:#4cc9f0;
+    color:white;
+    outline:none;
+}
+
+.header__paragraf{
+    display: none;
+}
+
+.header__text{
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+}
+
+.header__para{
+   font-size:26px;
+   color:#487F63;
+}
+
+.header__wrapper--img{
+    width: 52px;
+    padding-left: 10px;
+    
+}
+
+.header-loading{
+    display: none;
+}
+
+.search__section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loading{
+    font-size: 26px;
+    animation: loading 1s linear infinite;
+}
+
+/* Countries */
+
+.Countries__wrapper{
+    display: none;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top:40px;
+}
+
+
+.continent{
+    background-color: white;
+    margin:0 14px;
+    margin-bottom: 30px;
+    width: 30%;
+    height: 250px;
+    border-radius: 16px;
+    border: 3px solid #487F63;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.continent__name{
+    font-size: 24px;
+    color:#131313;
+}
+
+.continent__icon{
+    height: 190px;
+    font-size: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.continent-icon{
+    color:#23c06f;
+    background-color: #4cc9f0;
+    border-radius: 60px;
+    transition: all 300ms ease;
+}
+
+.continent:hover .continent-icon{
+    transform: scale(1.1);
+}
+
+.continent__countries{
+    display: none;
+    flex-wrap: wrap;
+    justify-content:center;
+    margin-top:4px;
+    opacity: 1;
+}
+
+
+.continent__country{
+    width: 20%;
+    height: 120px;
+    border-radius: 16px;
+    border: 3px solid #487F63;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin:10px;
+}
+
+.continent__country--flag{
+    width: 20%;
+}
+
+
+.go-back{
+    width: 100%;
+    display: none;
+    justify-content: flex-start;
+}
+
+.loading__bg{
+    background-color: #b6b8bdd2;
+    width: 100%;
+    padding: 0 20px;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left: 0;
+    bottom: 0;
+    display:none;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading__wrapper{
+    z-index: 1000;
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #487F63;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading__wrapper .loading{
+    font-size: 38px;
+}
+
+/* Guess the Flag */
+
+.guess__wrapper{
+    margin-top:30px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.guess__flag--img{
+    margin-bottom: 30px;
+}
+
+.guess__flag{
+    width: 500px;
+    height: 350px;
+}
+
+.guess__para{
+    font-size: 20px;
+}
+
+.capital__name{
+    color:#2196F3;
+    font-weight: 600;
+}
+
+.guess__score--bg{
+    background-color: #b6b8bdcb;
+    width: 100%;
+    padding: 0 20px;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left: 0;
+    bottom: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.guess__score--wrapper{
+    z-index: 1000;
+    background-color: white;
+    width: 500px;
+    height: 200px;
+    border: 2px solid #487F63;
+    border-radius: 16px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.guess__score--para{
+    font-size: 24px;
+    color:#23c06f;
+}
+
+.guess__score--btn{
+    margin-top: 30px;
+}
+
+.guess__search{
+    width: 350px;
+    height: 24pt;
+    transition-duration: 0.4s;
+    color: black;
+    background: white;
+    border: 2px solid;
+    border-color: #4cc9f0;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 500ms ease;
+}
+
+.wrong__value{
+    background:red;
+    border-color: red;
+}
+
+.guess__search:focus{
+    background-color:#4cc9f0;
+    color:white;
+    outline:none;
+}
+
+.btn-next{
+    border:3px solid #487F63;
+    border-radius: 16px;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.btn-next:hover{
+    background-color:#487F63;
+    color:white;
+}
+
+.guess__hint{
+    display: none;
+}
+
+.refresh__btn{
+    border: 3px solid #487F63;
+    border-radius: 16px;
+    padding: 8px 10px;
+    margin:10px 0;
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.refresh__btn:hover{
+    background-color:#487F63;
+    color:white;
+}
+
+@keyframes loading{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width:800px) {
+    .continent{
+        width: 40%;
+    }
+
+    .continent__country{
+        width: 30%;
+    }
+
+    .continent__country--name{
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width:600px) {
+    .continent{
+        width: 100%;
+    }
+
+    .continent__country{
+        width: 80%;
+    }
+
+    .guess__flag{
+        width: 300px;
+        height: 200px;
+    }
+}
+
+@media (max-width:450px) {
+    .header__buttons{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .nav__title{
+        font-size:30px;
+    }
+
+    .search__section{
+        padding: 0 20px;
+    }
+
+    .search{
+        width: 300px;
+    }
+
+    .guess__search{
+        width: 300px;
+    }
+
+    .guess__para{
+        font-size: 18px;
+    }
+
+    .hint__para{
+        margin-bottom: 20px;
+    }
+}

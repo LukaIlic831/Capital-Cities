@@ -89,7 +89,6 @@ function openSearch() {
     document.querySelector(".btn3").classList.remove("btn-primary");
     document.querySelector(".search__section").style.display = "flex";
     document.querySelector(".Countries__wrapper").style.display = "none";
-    document.querySelector(".canvas").style.display = "block";
     continentCountry.style.display = "none";
     back.style.display = "none";
     guessWrapper.style.display = "none";
@@ -101,7 +100,6 @@ function openCountries() {
     document.querySelector(".btn3").classList.remove("btn-primary");
     document.querySelector(".search__section").style.display = "none";
     document.querySelector(".Countries__wrapper").style.display = "flex";
-    document.querySelector(".canvas").style.display = "none";
     back.style.display = "none";
     continentCountry.style.display = "none";
     guessWrapper.style.display = "none";
@@ -113,7 +111,6 @@ function openGuess() {
     document.querySelector(".btn2").classList.remove("btn-primary");
     document.querySelector(".search__section").style.display = "none";
     document.querySelector(".Countries__wrapper").style.display = "none";
-    document.querySelector(".canvas").style.display = "none";
     back.style.display = "none";
     continentCountry.style.display = "none";
     guessWrapper.style.display = "flex";
@@ -154,6 +151,7 @@ function backToCountries(){
 
 
 async function getAllFlags(){
+    console.log(2)
     document.querySelector(".loading__bg").style.display = "flex";
     await fetch("https://restcountries.com/v3.1/all")
         .then(res => res.json())

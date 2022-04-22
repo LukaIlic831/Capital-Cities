@@ -11,14 +11,12 @@
 </head>
 
 <body onload="getAllFlags()">
-    <div class="row">
-        <nav>
-            <h1 class="nav__title">
-                Capital <span class="blue">Cities</span>
-                <i class="fas fa-earth-africa nav__icon"></i>
-            </h1>
-        </nav>
-    </div>
+    <nav>
+        <h1 class="nav__title">
+            <i class="fas fa-earth-africa nav__icon"></i>
+            Capital <span class="blue">Cities</span>
+        </h1>
+    </nav>
     <header>
         <div class="row">
             <div class="header__wrapper">
@@ -29,24 +27,24 @@
                 </div>
                 <div class="search__section">
                     <div class="header__search">
-                        <input type="text" class="search" onchange="searchValue(event)" placeholder="Type in Country name or Capital City">
+                        <input type="text" class="search" onchange="searchValue(event)"
+                            placeholder="Type in Country name or Capital City">
                     </div>
-                <div class="header__text">
-                    <div class="header-loading">
-                        <i class="fa-solid fa-spinner loading"></i>
+                    <div class="header__text">
+                        <div class="header-loading">
+                            <i class="fa-solid fa-spinner loading"></i>
+                        </div>
+                        <div class="header__paragraf">
+                            <p class="header__para"></p>
+                            <figure class="header__wrapper--img">
+                                <img class="header__img" src="" alt="">
+                            </figure>
+                        </div>
+                        <p class="no-result">No Results</p>
+                        <i class="fa-solid fa-flag flag"></i>
                     </div>
-                    <div class="header__paragraf">
-                        <p class="header__para"></p>
-                        <figure class="header__wrapper--img">
-                            <img class="header__img" src="" alt="">
-                        </figure>
-                    </div>
-                    <p class="no-result">No Results</p>
-                    <i class="fa-solid fa-flag flag"></i>
-                </div>
-                <figure class="header__world--img">
-                    <img src="./assets/world.svg" class="world__img" alt="">
-                </figure>
+                    <canvas class="canvas">
+                    </canvas>
                 </div>
                 <div class="Countries__wrapper">
                     <div class="continent">
@@ -57,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="continent" >
+                    <div class="continent">
                         <div class="continent__name" id="asia">
                             <p class="continent--name">Asia</p>
                             <div class="continent__icon">
@@ -73,7 +71,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="continent" >
+                    <div class="continent">
                         <div class="continent__name" id="africa">
                             <p class="continent--name">Africa</p>
                             <div class="continent__icon">
@@ -108,7 +106,8 @@
                         Which is the capital of <span class="capital__name"></span>
                     </div>
                     <div class="header__search">
-                        <input type="text" class="guess__search" onchange="checkCapital(event)" placeholder="Type in Capital">
+                        <input type="text" class="guess__search" onchange="checkCapital(event)"
+                            placeholder="Type in Capital">
                     </div>
                     <a class="refresh__btn" onclick="refreshFlag()"><i class="fa-solid fa-arrows-rotate"></i></a>
                     <div class="guess__hint">
@@ -130,8 +129,69 @@
                 </div>
             </div>
         </div>
-    </header>
+    <main>
+
+    </main>
+    <script src="index.js"></script>
+    <script src="three.js"></script>
+    <script>
+        var canvas = document.querySelector(".canvas");
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const geometry = new THREE.SphereGeometry(1.5, 32, 32);
+        const material = new THREE.MeshBasicMaterial();
+        material.map = THREE.ImageUtils.loadTexture('assets/texture.jpg');
+
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
+
+        resize();
+        window.onresize = resize;
+
+        scene.add(new THREE.AmbientLight(0x333333));
+
+        var light = new THREE.DirectionalLight(0xffffff, 1);
+        light.position.set(5, 3, 5);
+        scene.add(light);
+
+        new THREE.Mesh(
+            new THREE.SphereGeometry(90, 64, 64),
+            new THREE.MeshBasicMaterial({
+                map: THREE.ImageUtils.loadTexture('assets/galaxy.png'),
+                side: THREE.BackSide
+            })
+        );
+
+       
+
+       
+        function resize() {
+            window.innerWidth < 550 ?  (camera.position.z = 4)
+            :
+            camera.position.z = 2.8;
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        }
+
+
+
+
+        function animate() {
+
+            requestAnimationFrame(animate);
+
+            sphere.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        };
+
+        animate();
+    </script>
 </body>
-<script src="index.js"></script>
 
 </html>
